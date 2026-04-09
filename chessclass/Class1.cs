@@ -9,8 +9,13 @@ namespace chessclass;
 
 public class Game
 {
-    private char[,] field = new char[8,8];
+    public static char[,] field = new char[8,8];
     private Piece Kingw = new Piece(Pieces.King, 'K', 0, 3);
+
+    public void turn()
+    {
+        Piece.Move(Game.field, Pieces.King, 1, 2);
+    }
 
     private void setfield()
     {
@@ -48,8 +53,6 @@ public class Game
 
         field[Kingw.getxPos(), Kingw.getyPos()] = 'K';
 
-        King.check(field, 'K');
-
     }
 
     public override string ToString()
@@ -80,6 +83,8 @@ public class Piece
     private Pieces Figure;
     private char Symbol;
 
+    King King = new King();
+
     private int[] Pos = new int[2];
 
 
@@ -94,6 +99,14 @@ public class Piece
     public int getxPos() => this.Pos[0];
 
     public int getyPos() => this.Pos[1];
+
+    public void Move(char[,] field, Pieces fPiece, /*int[] startpos,*/ int xdestPos, int ydestPos)
+    {
+        switch (Figure)
+        {
+            case Pieces.King: King.checkmove(Game.field, 'K', 1, 2); break;
+        }
+    }
 
 }
 

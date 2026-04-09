@@ -27,7 +27,11 @@ public class King
 
         if(Math.Abs(xCord - newX) == 1 && Math.Abs(yCord - newY) == 1)
         {
-            
+            Console.WriteLine("DONE!!!!");
+        }
+        else
+        {
+            throw new Exception("King cannot move to this field. Too far away");
         }
     }
     

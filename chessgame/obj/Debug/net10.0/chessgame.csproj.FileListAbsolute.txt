@@ -16,3 +16,4 @@
 /home/julian/Desktop/SEW/chess/Chess_for_school/chessgame/obj/Debug/net10.0/chessgame.pdb
 /home/julian/Desktop/SEW/chess/Chess_for_school/chessgame/obj/Debug/net10.0/chessgame.genruntimeconfig.cache
 /home/julian/Desktop/SEW/chess/Chess_for_school/chessgame/obj/Debug/net10.0/ref/chessgame.dll
+/home/julian/Desktop/SEW/chess/Chess_for_school/chessgame/obj/Debug/net10.0/chessgame.sourcelink.json

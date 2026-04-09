@@ -8,6 +8,7 @@ public class Program1
     {
         Game chess = new Game();
         System.Console.WriteLine(chess.ToString());
+        
         return 0;
     }
 }

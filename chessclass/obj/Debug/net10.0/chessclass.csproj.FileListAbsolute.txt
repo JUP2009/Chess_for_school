@@ -9,3 +9,4 @@
 /home/julian/Desktop/SEW/chess/Chess_for_school/chessclass/obj/Debug/net10.0/refint/chessclass.dll
 /home/julian/Desktop/SEW/chess/Chess_for_school/chessclass/obj/Debug/net10.0/chessclass.pdb
 /home/julian/Desktop/SEW/chess/Chess_for_school/chessclass/obj/Debug/net10.0/ref/chessclass.dll
+/home/julian/Desktop/SEW/chess/Chess_for_school/chessclass/obj/Debug/net10.0/chessclass.sourcelink.json
