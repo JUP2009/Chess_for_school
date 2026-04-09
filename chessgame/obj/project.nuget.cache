@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QnQSflabgY4=",
+  "success": true,
+  "projectFilePath": "/home/julian/Desktop/SEW/chess/Chess_for_school/chessgame/chessgame.csproj",
+  "expectedPackageFiles": [
+    "/home/julian/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.3/microsoft.aspnetcore.app.ref.10.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
