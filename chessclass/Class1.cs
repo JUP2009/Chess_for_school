@@ -10,12 +10,12 @@ namespace chessclass;
 public class Game
 {
     public static char[,] field = new char[8,8];
+    public static char[,] nfield = new char[8,8];
     private Piece Kingw = new Piece(Pieces.King, 'K', 0, 3);
+    private Piece Towerw1 = new Piece(Pieces.Tower, 'T', 0,0);
+    private Piece Towerw2 = new Piece(Pieces.Tower, 'T', 0,7);
 
-    public void turn()
-    {
-        Piece.Move(Game.field, Pieces.King, 1, 2);
-    }
+
 
     private void setfield()
     {
@@ -27,7 +27,7 @@ public class Game
                 {
                     if(j%2 == 0)
                     {
-                        field[i, j] = ' ';
+                        field[i, j] = 'E';
                     }
                     else
                     {
@@ -45,19 +45,65 @@ public class Game
                     }
                     else
                     {
-                        field[i, j] = ' ';
+                        field[i, j] = 'E';
                     }
                 }
             }
         }
 
         field[Kingw.getxPos(), Kingw.getyPos()] = 'K';
+        field[Towerw1.getxPos(), Towerw1.getyPos()] = 'T';
+        field[Towerw2.getxPos(), Towerw2.getyPos()] = 'T';
+    }
 
+    public void setnfield()
+    {
+        for(int i = 0; i <8; i++)
+        {
+            if(i%2 == 0)
+            {
+                for(int j = 0; j<8; j++)
+                {
+                    if(j%2 == 0)
+                    {
+                        nfield[i, j] = ' ';
+                    }
+                    else
+                    {
+                        nfield[i, j] = '#';
+                    }
+                }
+            }
+            else
+            {
+                for(int j = 0; j<8; j++)
+                {
+                    if(j%2 == 0)
+                    {
+                        nfield[i, j] = '#';
+                    }
+                    else
+                    {
+                        nfield[i, j] = ' ';
+                    }
+                }
+            }
+        }
+    }
+    public void turn(Pieces Piecef,int xstartPos, int ystartPos, int xdestPos, int ydestPos)
+    {
+        setfield();
+        setnfield();
+        switch (Piecef)
+        {
+            case Pieces.King: Kingw.Move(xstartPos, ydestPos, xdestPos, ydestPos);break;
+        }
     }
 
     public override string ToString()
     {
         setfield();
+        setnfield();
         string letters = "   a   b   c   d   e   f   g   h  ";
         string trennline = " +---+---+---+---+---+---+---+---+";
         string drawfield = letters + Environment.NewLine + trennline + Environment.NewLine;
@@ -67,7 +113,14 @@ public class Game
             drawfield += "|";
             for(int j = 0; j < 8; j++)
             {
-                drawfield += $" {field[i, j] } |";
+                if(field[i, j] == 'E')
+                {
+                    drawfield += "   |";
+                }
+                else
+                {
+                    drawfield += $" {field[i, j] } |";  
+                }
             }
             drawfield += Environment.NewLine + trennline + Environment.NewLine;
         }
@@ -100,11 +153,14 @@ public class Piece
 
     public int getyPos() => this.Pos[1];
 
-    public void Move(char[,] field, Pieces fPiece, /*int[] startpos,*/ int xdestPos, int ydestPos)
+    public void Move(int xstartPos, int ystartPos, int xdestPos, int ydestPos)
     {
         switch (Figure)
         {
-            case Pieces.King: King.checkmove(Game.field, 'K', 1, 2); break;
+            case Pieces.King: 
+                if(xdestPos < 0 || ydestPos < 0 || ydestPos > 8 || xdestPos > 8){ Console.WriteLine("zu hoch");break;}
+                this.Pos = King.checkmove(xstartPos, ystartPos, xdestPos, ydestPos);
+                break;
         }
     }
 
@@ -113,5 +169,6 @@ public class Piece
 public enum Pieces
 {
     King,
-    Queen
+    Queen,
+    Tower
 }

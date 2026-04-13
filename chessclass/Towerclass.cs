@@ -1,8 +1,6 @@
-using System;
-
 namespace chessclass;
 
-public class King
+public class Tower
 {
     public int[] checkmove(int oldX, int oldY, int newX, int newY)
     {
@@ -26,5 +24,4 @@ public class King
         }
         return null;
     }
-        
 }
